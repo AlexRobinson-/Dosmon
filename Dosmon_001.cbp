@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Dosmon_001" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Option virtualFolders="Model\;View\;Controller\;" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Dosmon_001" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Dosmon_001" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="AIMonster.cpp">
+			<Option virtualFolder="Model/" />
+		</Unit>
+		<Unit filename="AIMonster.h" />
+		<Unit filename="AIMonsterGenerator.cpp">
+			<Option virtualFolder="Model/" />
+		</Unit>
+		<Unit filename="AIMonsterGenerator.h" />
+		<Unit filename="AccountController.cpp">
+			<Option virtualFolder="Controller/" />
+		</Unit>
+		<Unit filename="AccountController.h" />
+		<Unit filename="BasicTemplate.cpp">
+			<Option virtualFolder="View/" />
+		</Unit>
+		<Unit filename="BasicTemplate.h" />
+		<Unit filename="BasicView.cpp">
+			<Option virtualFolder="View/" />
+		</Unit>
+		<Unit filename="BasicView.h" />
+		<Unit filename="BattleController.cpp">
+			<Option virtualFolder="Controller/" />
+		</Unit>
+		<Unit filename="BattleController.h" />
+		<Unit filename="BattleTemplate.cpp">
+			<Option virtualFolder="View/" />
+		</Unit>
+		<Unit filename="BattleTemplate.h" />
+		<Unit filename="BattleView.cpp">
+			<Option virtualFolder="View/" />
+		</Unit>
+		<Unit filename="BattleView.h" />
+		<Unit filename="Controller.cpp">
+			<Option virtualFolder="Controller/" />
+		</Unit>
+		<Unit filename="Controller.h" />
+		<Unit filename="Item.cpp">
+			<Option virtualFolder="Model/" />
+		</Unit>
+		<Unit filename="Item.h" />
+		<Unit filename="LoggedOutController.cpp">
+			<Option virtualFolder="Controller/" />
+		</Unit>
+		<Unit filename="LoggedOutController.h" />
+		<Unit filename="LoggedOutTemplate.cpp">
+			<Option virtualFolder="View/" />
+		</Unit>
+		<Unit filename="LoggedOutTemplate.h" />
+		<Unit filename="LoggedOutView.cpp">
+			<Option virtualFolder="View/" />
+		</Unit>
+		<Unit filename="LoggedOutView.h" />
+		<Unit filename="LoginController.h" />
+		<Unit filename="MainController.cpp">
+			<Option virtualFolder="Controller/" />
+		</Unit>
+		<Unit filename="MainController.h" />
+		<Unit filename="Monster.cpp">
+			<Option virtualFolder="Model/" />
+		</Unit>
+		<Unit filename="Monster.h" />
+		<Unit filename="RegisterController.h" />
+		<Unit filename="User.cpp">
+			<Option virtualFolder="Model/" />
+		</Unit>
+		<Unit filename="User.h" />
+		<Unit filename="UserDA.cpp" />
+		<Unit filename="UserDA.h" />
+		<Unit filename="UserHandler.cpp">
+			<Option virtualFolder="Model/" />
+		</Unit>
+		<Unit filename="UserHandler.h" />
+		<Unit filename="UserMonster.cpp">
+			<Option virtualFolder="Model/" />
+		</Unit>
+		<Unit filename="UserMonster.h" />
+		<Unit filename="View.cpp">
+			<Option virtualFolder="View/" />
+		</Unit>
+		<Unit filename="View.h" />
+		<Unit filename="main.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

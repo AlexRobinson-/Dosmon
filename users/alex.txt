@@ -1,0 +1,7 @@
+username:alex
+password:alex123
+health:10
+level:1
+attack:1
+statpoints:5
+experience:0
