@@ -1,6 +1,9 @@
 #ifndef AIMONSTERGENERATOR_H
 #define AIMONSTERGENERATOR_H
 
+class UserMonster;
+class AIMonster;
+
 /**
 AIMonsterGenerator
 
@@ -15,8 +18,12 @@ AIMonsterGenerator
 class AIMonsterGenerator
 {
     public:
+        /* CON/DECON */
         AIMonsterGenerator();
         virtual ~AIMonsterGenerator();
+
+        /* METHODS */
+        static AIMonster generateMonster(UserMonster*);
     protected:
     private:
 };

@@ -25,9 +25,8 @@ void BasicView::assignRefToUser(User* user)
 void BasicView::load()
 {
     printLineBreak('-', 80);
-    printAttributeBar(this->user->getHealth(), this->user->getMaxHealth(), "Health");
-    printAttributeBar(this->user->getExperience(), this->user->getMaxExperience(), "Exp");
-    cout << this->user->getUsername() << endl;
+    printAttributeBar(this->user->getMonster()->getHealth(), this->user->getMonster()->getMaxHealth(), "Health");
+    printAttributeBar(this->user->getMonster()->getExperience(), this->user->getMonster()->getMaxExperience(), "Exp");
     printTitle();
     printActions();
 

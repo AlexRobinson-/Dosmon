@@ -8,15 +8,18 @@
 
 using namespace std;
 
-// Needed to access the user object
+/* MODELS */
 #include "User.h"
+#include "AIMonster.h"
+#include "AIMonsterGenerator.h"
 
-// Access to the Basic View
+/* VIEWS */
 #include "BasicView.h"
 
-// Access to other controllers
+/* CONTROLLERS */
 #include "AccountController.h"
 #include "LoggedOutController.h"
+#include "BattleController.h"
 
 using namespace std;
 
@@ -27,7 +30,7 @@ default action = menu
 */
 MainController::MainController(User* userObject, string action)
 {
-    this-> user = userObject;
+    this->user = userObject;
     performAction(action);
 }
 
@@ -45,6 +48,10 @@ void MainController::performAction(string action)
     {
         /* May need to create a monster to battle, or tell BattleController to and initiate battle */
         //BattleController battleController;
+
+        AIMonster aiMonster = AIMonsterGenerator::generateMonster(this->user->getMonster());
+
+        BattleController battleController = BattleController(this->user->getMonster(), &aiMonster);
     }else if(action == "Items")
     {
         cout << endl;/* List current items and give option to use them */
@@ -67,6 +74,7 @@ void MainController::performAction(string action)
         /* Change this->user to a guest account */
 
         /* Instead of 'delete this', go to logged out screen */
+        LoggedOutController loggedOutController;
         delete this;
     }
 }

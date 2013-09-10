@@ -3,7 +3,7 @@
 #include <iostream>
 
 /* MODELS */
-#include "User.h";
+#include "User.h"
 
 /* CONTROLLERS */
 #include "MainController.h"

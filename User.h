@@ -24,25 +24,13 @@ class User
         /* SETS */
         void setUsername(std::string);
         void setPassword(std::string);
-        void setLevel(int);
-        void setHealth(int);
-        void setMaxHealth(int);
-        void setAttack(int);
-        void setStatPoints(int);
-        void setExperience(int);
-        void setMaxExperience(int);
+        void setMonster(UserMonster*);
 
 
         /* GETS */
         std::string getUsername();
         std::string getPassword();
-        int getLevel();
-        int getHealth();
-        int getMaxHealth();
-        int getAttack();
-        int getStatPoints();
-        int getExperience();
-        int getMaxExperience();
+        UserMonster* getMonster();
 
         /* METHODS */
         bool attemptLogin(std::string, std::string, std::string = ".txt");
@@ -55,15 +43,7 @@ class User
         std::string username = "NOT SET";
         std::string password = "NOT SET";
 
-        int level;
-        int health;
-        int maxHealth;
-        int attack;
-        int statPoints;
-        int experience;
-        int maxExperience;
-
-        //Monster monster;
+        UserMonster* monster;
         //todo items
 };
 

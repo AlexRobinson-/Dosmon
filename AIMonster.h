@@ -1,23 +1,20 @@
 #ifndef AIMONSTER_H
 #define AIMONSTER_H
 
-/**
-AIMonster
+#include "Monster.h"
+#include "BattleMove.h"
 
-- Stores the generated monster from GenerateMonster
-- AI for
-    - When to attack
-    - When to defend
-    - When to use an item
-    - No option to run
 
-*/
-
-class AIMonster
+class AIMonster: public Monster
 {
     public:
+        /* CON/DECON */
         AIMonster();
         virtual ~AIMonster();
+
+        /* METHODS */
+        BattleMove* requestBattleMove();
+
     protected:
     private:
 };

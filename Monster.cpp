@@ -2,6 +2,8 @@
 
 #include <string>
 
+#include "BattleMove.h"
+
 using namespace std;
 
 /* CON/DECON */
@@ -43,21 +45,6 @@ void Monster::setAttack(int attack)
     this->attack = attack;
 }
 
-void Monster::setStatPoints(int statPoints)
-{
-    this->statPoints = statPoints;
-}
-
-void Monster::setExperience(int experience)
-{
-    this->experience = experience;
-}
-
-void Monster::setMaxExperience(int maxExperience)
-{
-    this->maxExperience = maxExperience;
-}
-
 /* GETS */
 
 string Monster::getMonsterName()
@@ -85,18 +72,9 @@ int Monster::getAttack()
     return attack;
 }
 
-int Monster::getStatPoints()
+/* METHODS */
+BattleMove* Monster::requestBattleMove()
 {
-    return statPoints;
+    BattleMove battleMove;
+    return &battleMove;
 }
-
-int Monster::getExperience()
-{
-    return experience;
-}
-
-/*int User::getMaxExperience()
-{
-    return maxExperience;
-}*/
-

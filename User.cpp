@@ -8,6 +8,7 @@
 #include "UserDA.h"
 
 #include "UserAttributeHelper.h"
+#include "UserMonster.h"
 
 using namespace std;
 
@@ -15,7 +16,7 @@ using namespace std;
 
 User::User()
 {
-    //ctor
+
 }
 
 User::~User()
@@ -35,39 +36,9 @@ void User::setPassword(string password)
     this->password = password;
 }
 
-void User::setLevel(int level)
+void User::setMonster(UserMonster* userMonster)
 {
-    this->level = level;
-}
-
-void User::setHealth(int health)
-{
-    this->health = health;
-}
-
-void User::setMaxHealth(int maxHealth)
-{
-    this->maxHealth = maxHealth;
-}
-
-void User::setAttack(int attack)
-{
-    this->attack = attack;
-}
-
-void User::setStatPoints(int statPoints)
-{
-    this->statPoints = statPoints;
-}
-
-void User::setExperience(int experience)
-{
-    this->experience = experience;
-}
-
-void User::setMaxExperience(int maxExperience)
-{
-    this->maxExperience = maxExperience;
+    this->monster = userMonster;
 }
 
 /* GETS */
@@ -82,39 +53,9 @@ string User::getPassword()
     return this->password;
 }
 
-int User::getLevel()
+UserMonster* User::getMonster()
 {
-    return level;
-}
-
-int User::getHealth()
-{
-    return health;
-}
-
-int User::getMaxHealth()
-{
-    return maxHealth;
-}
-
-int User::getAttack()
-{
-    return attack;
-}
-
-int User::getStatPoints()
-{
-    return statPoints;
-}
-
-int User::getExperience()
-{
-    return experience;
-}
-
-int User::getMaxExperience()
-{
-    return maxExperience;
+    return this->monster;
 }
 
 /* METHODS */
@@ -128,8 +69,8 @@ bool User::attemptLogin(string username, string password, string extension)
     if(userDA.getAttribute("password") == password)
     {
         userDA.loadUser();
-        setMaxHealth(UserAttributeHelper::calculateMaxHealth(getLevel()));
-        setMaxExperience(UserAttributeHelper::calculateMaxExperience(getLevel()));
+        getMonster()->setMaxHealth(UserAttributeHelper::calculateMaxHealth(getMonster()->getLevel()));
+        getMonster()->setMaxExperience(UserAttributeHelper::calculateMaxExperience(getMonster()->getLevel()));
         return true;
     }else
     {

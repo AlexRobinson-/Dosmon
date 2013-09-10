@@ -66,15 +66,15 @@ bool UserDA::saveUser()
         myfile << "\n"; // new line
         myfile << "password:"   << user->getPassword();
         myfile << "\n"; // new line
-        myfile << "health:"     << user->getHealth();
+        myfile << "health:"     << user->getMonster()->getHealth();
         myfile << "\n"; // new line
-        myfile << "level:"      << user->getLevel();
+        myfile << "level:"      << user->getMonster()->getLevel();
         myfile << "\n"; // new line
-        myfile << "attack:"     << user->getAttack();
+        myfile << "attack:"     << user->getMonster()->getAttack();
         myfile << "\n"; // new line
-        myfile << "statpoints:" << user->getStatPoints();
+        myfile << "statpoints:" << user->getMonster()->getStatPoints();
         myfile << "\n"; // new line
-        myfile << "experience:" << user->getExperience();
+        myfile << "experience:" << user->getMonster()->getExperience();
 
         myfile.close();
         return true;
@@ -89,7 +89,6 @@ void UserDA::loadUser()
 {
     ifstream myfile (fileName.c_str());
     string readLine;
-    cout << "Opening file " << fileName << endl;
     if( myfile.is_open() )
     {
         while ( myfile.good() )
@@ -129,22 +128,23 @@ void UserDA::assignAttributeToUserObject(vector<string> attributeHolder)
     }else if(attributeHolder.at(0) == "level")
     {
         int attribute = atoi(attributeHolder.at(1).c_str());
-        user->setLevel(attribute);
+        user->getMonster()->setLevel(attribute);
     }else if(attributeHolder.at(0) == "health")
     {
         int attribute = atoi (attributeHolder.at(1).c_str());
-        user->setHealth(attribute);
+        user->getMonster()->setHealth(attribute);
+        cout << "Successfully set health " << user->getMonster()->getHealth() << endl;
     }else if(attributeHolder.at(0) == "attack")
     {
         int attribute = atoi (attributeHolder.at(1).c_str());
-        user->setAttack(attribute);
+        user->getMonster()->setAttack(attribute);
     }else if(attributeHolder.at(0) == "statpoints")
     {
         int attribute = atoi (attributeHolder.at(1).c_str());
-        user->setStatPoints(attribute);
+        user->getMonster()->setStatPoints(attribute);
     }else if(attributeHolder.at(0) == "experience")
     {
         int attribute = atoi (attributeHolder.at(1).c_str());
-        user->setExperience(attribute);
+        user->getMonster()->setExperience(attribute);
     }
 }

@@ -4,6 +4,7 @@
 
 /* CONTROLLERS */
 #include "MainController.h"
+#include "UserMonster.h"
 
 /* VIEWS */
 #include "LoggedOutView.h"
@@ -78,13 +79,16 @@ void LoggedOutController::createAccount()
     User user;
     user.setUsername(username);
     user.setPassword(password);
-    user.setLevel(1);
-    user.setMaxHealth(UserAttributeHelper::calculateMaxHealth(1));
-    user.setHealth(user.getMaxHealth());
-    user.setAttack(1);
-    user.setStatPoints(5);
-    user.setExperience(0);
-    user.setMaxExperience(UserAttributeHelper::calculateMaxHealth(1));
+    UserMonster monster;
+    user.setMonster(&monster);
+
+    user.getMonster()->setLevel(1);
+    user.getMonster()->setMaxHealth(UserAttributeHelper::calculateMaxHealth(1));
+    user.getMonster()->setHealth(user.getMonster()->getMaxHealth());
+    user.getMonster()->setAttack(1);
+    user.getMonster()->setStatPoints(5);
+    user.getMonster()->setExperience(0);
+    user.getMonster()->setMaxExperience(UserAttributeHelper::calculateMaxHealth(1));
 
     user.save();
 
@@ -93,10 +97,10 @@ void LoggedOutController::createAccount()
     cout << "***********************" << endl << endl;
     cout << "Username:      " << user.getUsername() << endl;
     cout << "Password:      " << user.getPassword() << endl;
-    cout << "Level:         " << user.getLevel() << endl;
-    cout << "Health:        " << user.getHealth() << " / " << user.getMaxHealth() << endl;
-    cout << "Attack:        " << user.getAttack() << endl;
-    cout << "Stat points:   " << user.getStatPoints() << endl;
+    cout << "Level:         " << user.getMonster()->getLevel() << endl;
+    cout << "Health:        " << user.getMonster()->getHealth() << " / " << user.getMonster()->getMaxHealth() << endl;
+    cout << "Attack:        " << user.getMonster()->getAttack() << endl;
+    cout << "Stat points:   " << user.getMonster()->getStatPoints() << endl;
 
     MainController mainController = MainController(&user);
 }
@@ -107,6 +111,8 @@ void LoggedOutController::loginScreen()
     string password = requestStringInput("Please enter your password: ");
 
     User user;
+    UserMonster monster;
+    user.setMonster(&monster);
     if(user.attemptLogin(username, password))
     {
         MainController mainController = MainController(&user);

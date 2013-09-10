@@ -20,15 +20,12 @@ int main()
         If the user isn't logged in open the logged out controller
 
     */
-    while(true)
-    {
         if(false) {
             User user;
             user.setUsername("This is the username");
             MainController main = MainController(&user);
         }else {
             LoggedOutController loggedOut;
-    }
     }
 
     return 0;

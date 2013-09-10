@@ -2,6 +2,8 @@
 #define MONSTER_H
 #include <string>
 
+class BattleMove;
+
 class Monster
 {
     public:
@@ -15,9 +17,6 @@ class Monster
         void setHealth(int);
         void setMaxHealth(int);
         void setAttack(int);
-        void setStatPoints(int);
-        void setExperience(int);
-        void setMaxExperience(int);
 
         /* GETS */
         std::string getMonsterName();
@@ -25,9 +24,9 @@ class Monster
         int getHealth();
         int getMaxHealth();
         int getAttack();
-        int getStatPoints();
-        int getExperience();
-        int getMaxExperience();
+
+        /* METHODS */
+        virtual BattleMove* requestBattleMove() = 0;
 
     protected:
     private:
@@ -37,9 +36,6 @@ class Monster
         int health;
         int maxHealth;
         int attack;
-        int statPoints;
-        int experience;
-        int maxExperience;
 };
 
 #endif // MONSTER_H
