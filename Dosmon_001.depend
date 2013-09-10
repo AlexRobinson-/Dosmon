@@ -1,0 +1,226 @@
+# depslib dependency file v1.0
+1378641023 source:d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\aimonster.cpp
+	"AIMonster.h"
+	"BattleMove.h"
+	<iostream>
+
+1378639319 d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\aimonster.h
+	"Monster.h"
+	"BattleMove.h"
+
+1378640958 source:d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\aimonstergenerator.cpp
+	"AIMonsterGenerator.h"
+	"AIMonster.h"
+	"UserMonster.h"
+
+1378640962 d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\aimonstergenerator.h
+
+1377569506 source:d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\basictemplate.cpp
+	"BasicTemplate.h"
+
+1377569506 d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\basictemplate.h
+
+1378542164 source:d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\basicview.cpp
+	"BasicView.h"
+	<iostream>
+	<iterator>
+
+1377823753 d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\basicview.h
+	<string>
+	<map>
+	"View.h"
+	"User.h"
+
+1378641888 source:d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\battlecontroller.cpp
+	"BattleController.h"
+	<iostream>
+	"UserMonster.h"
+	"AIMonster.h"
+	"BattleMove.h"
+	"BattleUserVsComp.h"
+
+1378546395 d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\battlecontroller.h
+	"UserMonster.h"
+	"AIMonster.h"
+	"BattleUserVsComp.h"
+
+1377569521 source:d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\battletemplate.cpp
+	"BattleTemplate.h"
+
+1377569521 d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\battletemplate.h
+
+1377569590 source:d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\battleview.cpp
+	"BattleView.h"
+
+1377569590 d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\battleview.h
+
+1377491522 source:d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\item.cpp
+	"Item.h"
+
+1377571415 d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\item.h
+
+1378356930 source:d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\loggedoutcontroller.cpp
+	"LoggedOutController.h"
+	<string>
+	<iostream>
+	"MainController.h"
+	"UserMonster.h"
+	"LoggedOutView.h"
+	"UserAttributeHelper.h"
+
+1377864548 d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\loggedoutcontroller.h
+	<string>
+	"Controller.h"
+
+1377569480 source:d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\loggedouttemplate.cpp
+	"LoggedOutTemplate.h"
+
+1377569480 d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\loggedouttemplate.h
+
+1377864347 source:d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\loggedoutview.cpp
+	"LoggedOutView.h"
+	<iostream>
+	<string>
+
+1377864272 d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\loggedoutview.h
+	"View.h"
+
+1378465750 source:d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\main.cpp
+	<iostream>
+	<fstream>
+	"User.h"
+	"MainController.h"
+	"LoggedOutController.h"
+
+1378355072 d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\user.h
+	<string>
+	"UserMonster.h"
+
+1377863736 d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\maincontroller.h
+	<string>
+	"User.h"
+	"Controller.h"
+
+1378640970 source:d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\maincontroller.cpp
+	"MainController.h"
+	<iostream>
+	<vector>
+	<string>
+	"User.h"
+	"AIMonster.h"
+	"AIMonsterGenerator.h"
+	"BasicView.h"
+	"AccountController.h"
+	"LoggedOutController.h"
+	"BattleController.h"
+
+1378637295 source:d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\monster.cpp
+	"Monster.h"
+	<string>
+	"BattleMove.h"
+
+1378639194 d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\monster.h
+	<string>
+
+1378356894 source:d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\user.cpp
+	"User.h"
+	<iostream>
+	<fstream>
+	<string>
+	<stdlib.h>
+	"UserDA.h"
+	"UserAttributeHelper.h"
+	"UserMonster.h"
+
+1377948908 source:d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\userhandler.cpp
+	"UserHandler.h"
+	<string>
+
+1377948871 d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\userhandler.h
+	"User.h"
+
+1378641477 source:d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\usermonster.cpp
+	"UserMonster.h"
+	"BattleMove.h"
+	<iostream>
+
+1378637223 d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\usermonster.h
+	"Monster.h"
+	"BattleMove.h"
+
+1378273906 d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\view.h
+	<string>
+	<vector>
+
+1378346189 source:d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\view.cpp
+	"View.h"
+	<string>
+	<iostream>
+	<vector>
+	<cmath>
+
+1377864805 source:d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\controller.cpp
+	"Controller.h"
+	<iostream>
+	<string>
+	<limits>
+	"User.h"
+
+1377864718 d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\controller.h
+	<string>
+	"User.h"
+
+1378470786 source:d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\accountcontroller.cpp
+	"AccountController.h"
+	<iostream>
+	"User.h"
+	"MainController.h"
+	"BasicView.h"
+
+1377825818 d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\accountcontroller.h
+	<string>
+	"User.h"
+	"MainController.h"
+
+1378346998 d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\userda.h
+	<vector>
+	<string>
+	"User.h"
+
+1378465732 source:d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\userda.cpp
+	"UserDA.h"
+	<iostream>
+	<string>
+	<vector>
+	<fstream>
+	<stdlib.h>
+
+1378347097 source:d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\userattributehelper.cpp
+	"UserAttributeHelper.h"
+
+1378347139 d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\userattributehelper.h
+
+1378635861 d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\battlemove.h
+
+1378636624 source:d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\battlemove.cpp
+	"BattleMove.h"
+
+1378641649 d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\battleuservscomp.h
+	"Battle.h"
+
+1378641057 source:d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\battle.cpp
+	"Battle.h"
+
+1378637499 d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\battle.h
+	"BattleAttack.h"
+	"UserMonster.h"
+	"AIMonster.h"
+
+1378546255 d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\battleattack.h
+
+1378641756 source:d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\battleuservscomp.cpp
+	"BattleUserVsComp.h"
+	"UserMonster.h"
+	"AIMonster.h"
+	<iostream>
+
