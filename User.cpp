@@ -31,6 +31,11 @@ void User::setUsername(string username)
     this->username = username;
 }
 
+void User::setName(string name)
+{
+    this->name = name;
+}
+
 void User::setPassword(string password)
 {
     this->password = password;
@@ -41,11 +46,27 @@ void User::setMonster(UserMonster* userMonster)
     this->monster = userMonster;
 }
 
+void User::setCoins(int coins, bool increment)
+{
+    if(increment)
+    {
+        this->coins += coins;
+    }else
+    {
+        this->coins = coins;
+    }
+}
+
 /* GETS */
 
 string User::getUsername()
 {
     return this->username;
+}
+
+string User::getName()
+{
+    return this->name;
 }
 
 string User::getPassword()
@@ -56,6 +77,11 @@ string User::getPassword()
 UserMonster* User::getMonster()
 {
     return this->monster;
+}
+
+int User::getCoins()
+{
+    return this->coins;
 }
 
 /* METHODS */

@@ -13,7 +13,7 @@ class Controller
         Controller();
         virtual ~Controller();
         void performAction(std::string = "Main");
-        int requestInput(std::string = "*replace*", bool = false);
+        int requestInput(std::string = "*replace*", int = -1, bool = false);
         std::string requestStringInput(std::string = "*replace*", bool = false);
         int stringToNumber(std::string);
     protected:

@@ -11,12 +11,14 @@ class MainController: public Controller
 {
     public:
         /* CON/DECON */
-        MainController(User*, std::string = "Main");
-        MainController(std::string = "Main");
+        MainController();
         ~MainController();
 
-        void performAction(std::string = "Main");
-        void mainMenu();
+        std::string performAction(std::string = "Main", std::string = "Main");
+        std::string mainMenu();
+
+        void setUpController(User*);
+        void startController(std::string = "Main");
     protected:
     private:
 };

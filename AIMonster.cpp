@@ -1,6 +1,7 @@
 #include "AIMonster.h"
 
 #include "BattleMove.h"
+#include "UserAttributeHelper.h"
 
 #include <iostream>
 
@@ -16,11 +17,16 @@ AIMonster::~AIMonster()
     //dtor
 }
 
-BattleMove* AIMonster::requestBattleMove()
+void AIMonster::loadLevelAttributes()
+{
+    setMaxHealth(UserAttributeHelper::calculateMaxHealth(getLevel()));
+}
+
+BattleMove AIMonster::requestBattleMove(string action)
 {
     BattleMove battleMove;
-    battleMove.setPerformingMonster(0);
-    battleMove.setReceivingMonster(1);
-    battleMove.setHealth(-2);
-    return &battleMove;
+    battleMove.setPerformingMonster(1);
+    battleMove.setReceivingMonster(0);
+    battleMove.setHealth(calculateAttack());
+    return battleMove;
 }

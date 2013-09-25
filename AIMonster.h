@@ -13,7 +13,8 @@ class AIMonster: public Monster
         virtual ~AIMonster();
 
         /* METHODS */
-        BattleMove* requestBattleMove();
+        void loadLevelAttributes();
+        BattleMove requestBattleMove(std::string = "null");
 
     protected:
     private:

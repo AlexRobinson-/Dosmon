@@ -4,7 +4,6 @@
 
 /* CONTROLLERS */
 #include "MainController.h"
-#include "UserMonster.h"
 
 /* VIEWS */
 #include "LoggedOutView.h"
@@ -12,12 +11,16 @@
 /* HELPERS */
 #include "UserAttributeHelper.h"
 
+/* MODELS */
+#include "UserMonster.h"
+#include "User.h"
+
 using namespace std;
 
 /* CON/DECON */
-LoggedOutController::LoggedOutController(string action)
+LoggedOutController::LoggedOutController(User* user)
 {
-    performAction(action);
+    this->user = user;
 }
 
 LoggedOutController::~LoggedOutController()
@@ -25,17 +28,34 @@ LoggedOutController::~LoggedOutController()
     //dtor
 }
 
-void LoggedOutController::performAction(string action)
+/* SET UP METHODS */
+
+void LoggedOutController::startController(string action)
+{
+    LoggedOutView loggedOutView;
+    this->loggedOutView = &loggedOutView;
+    bool loggedOut = true;
+    while(loggedOut)
+    {
+        nextScreen = performAction(nextScreen);
+        if(nextScreen == "loggedIn")
+        {
+            loggedOut = false;
+        }
+    }
+}
+
+string LoggedOutController::performAction(string action)
 {
     if(action == "Main") // Displays main menu
     {
-        mainMenu();
+        return mainMenu();
     }else if(action == "Login")
     {
-        loginScreen();
+        return loginScreen();
     }else if(action == "Create account")
     {
-       createAccount();
+       return createAccount();
     }
     else if(action == "Forgot Password") // Open account page
     {
@@ -48,10 +68,9 @@ void LoggedOutController::performAction(string action)
     }
 }
 
-void LoggedOutController::mainMenu()
+string LoggedOutController::mainMenu()
 {
-    LoggedOutView loggedOutView;
-    loggedOutView.setTitle("Dosmon V1.0 BETA"); // Set the title of the screen
+    loggedOutView->setTitle("Dosmon V1.0 BETA"); // Set the title of the screen
 
     /* MENU */
     vector<string> actions(4);
@@ -59,68 +78,55 @@ void LoggedOutController::mainMenu()
     actions.at(1) = "Create account";
     actions.at(2) = "Forgot password";
     actions.at(3) = "Close";
-    loggedOutView.setActions(actions); // Set the actions of the screen
+    loggedOutView->setActions(actions); // Set the actions of the screen
 
-    loggedOutView.load(); // Display the screen to the page
+    loggedOutView->load(); // Display the screen to the page
 
     int userinput;
-    userinput = requestInput("Please enter in some stuff: "); // Get input (menu option) from the user
-    performAction(loggedOutView.getActions().at(userinput)); // Open the menu that the user requested
+    userinput = requestInput("Please enter in some stuff: ", actions.size()); // Get input (menu option) from the user
+    return loggedOutView->getActions().at(userinput);
 }
 
-void LoggedOutController::createAccount()
+string LoggedOutController::createAccount()
 {
     bool nameSet = false;
     bool passSet = false;
 
     string username = requestStringInput("Please enter your username: ");
     string password = requestStringInput("Please enter your password: ");
+    string name = requestStringInput("Please enter your name: ");
+    string monsterName = requestStringInput("Please choose a name for your monster: ");
 
-    User user;
-    user.setUsername(username);
-    user.setPassword(password);
-    UserMonster monster;
-    user.setMonster(&monster);
+    this->user->setUsername(username);
+    this->user->setName(name);
+    this->user->setPassword(password);
 
-    user.getMonster()->setLevel(1);
-    user.getMonster()->setMaxHealth(UserAttributeHelper::calculateMaxHealth(1));
-    user.getMonster()->setHealth(user.getMonster()->getMaxHealth());
-    user.getMonster()->setAttack(1);
-    user.getMonster()->setStatPoints(5);
-    user.getMonster()->setExperience(0);
-    user.getMonster()->setMaxExperience(UserAttributeHelper::calculateMaxHealth(1));
+    this->user->getMonster()->setLevel(1, false);
+    this->user->getMonster()->setHealth(this->user->getMonster()->getMaxHealth());
+    this->user->getMonster()->setAttack(1);
+    this->user->getMonster()->setStatPoints(5, false);
+    this->user->getMonster()->setExperience(0, false);
+    this->user->setCoins(5, false);
+    this->user->getMonster()->setMonsterName(monsterName);
 
-    user.save();
+    this->user->save();
+    loggedOutView->printWelcomeMessage(user);
 
-    cout << "***********************" << endl;
-    cout << "** WELCOME TO DOSMON **" << endl;
-    cout << "***********************" << endl << endl;
-    cout << "Username:      " << user.getUsername() << endl;
-    cout << "Password:      " << user.getPassword() << endl;
-    cout << "Level:         " << user.getMonster()->getLevel() << endl;
-    cout << "Health:        " << user.getMonster()->getHealth() << " / " << user.getMonster()->getMaxHealth() << endl;
-    cout << "Attack:        " << user.getMonster()->getAttack() << endl;
-    cout << "Stat points:   " << user.getMonster()->getStatPoints() << endl;
-
-    MainController mainController = MainController(&user);
+    return "loggedIn";
 }
 
-void LoggedOutController::loginScreen()
+string LoggedOutController::loginScreen()
 {
     string username = requestStringInput("Please enter your username: ");
     string password = requestStringInput("Please enter your password: ");
 
-    User user;
-    UserMonster monster;
-    user.setMonster(&monster);
-    if(user.attemptLogin(username, password))
+    if(this->user->attemptLogin(username, password))
     {
-        MainController mainController = MainController(&user);
+        return "loggedIn";
     }else
     {
         cout << "Incorrect details" << endl;
-        mainMenu();
+        return "Main";
     }
-
 
 }

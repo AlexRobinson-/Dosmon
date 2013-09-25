@@ -31,7 +31,7 @@ string UserDA::getAttribute(string attribute)
 {
     ifstream myfile (fileName.c_str());
     string readLine;
-    cout << "Opening file " << fileName << endl;
+    //cout << "Opening file " << fileName << endl;
     if( myfile.is_open() )
     {
         while ( myfile.good() )
@@ -43,7 +43,7 @@ string UserDA::getAttribute(string attribute)
               myfile.close();
               return currentLine.at(1);
           }
-          cout << "Did not find password " << currentLine.at(0) << endl;
+          //cout << "Did not find " << currentLine.at(0) << endl;
         }
         myfile.close();
     }else
@@ -62,19 +62,23 @@ bool UserDA::saveUser()
     string readPassword;
     if (myfile.is_open())
     {
-        myfile << "username:"   << user->getUsername();
+        myfile << "name:"   << user->getName();
         myfile << "\n"; // new line
         myfile << "password:"   << user->getPassword();
         myfile << "\n"; // new line
-        myfile << "health:"     << user->getMonster()->getHealth();
-        myfile << "\n"; // new line
         myfile << "level:"      << user->getMonster()->getLevel();
+        myfile << "\n"; // new line
+        myfile << "health:"     << user->getMonster()->getHealth();
         myfile << "\n"; // new line
         myfile << "attack:"     << user->getMonster()->getAttack();
         myfile << "\n"; // new line
         myfile << "statpoints:" << user->getMonster()->getStatPoints();
         myfile << "\n"; // new line
         myfile << "experience:" << user->getMonster()->getExperience();
+        myfile << "\n"; // new line
+        myfile << "monsterName:" << user->getMonster()->getMonsterName();
+        myfile << "\n"; // new line
+        myfile << "coins:" << user->getCoins();
 
         myfile.close();
         return true;
@@ -119,21 +123,20 @@ vector<string> UserDA::splitLine(string line, string seperator)
 
 void UserDA::assignAttributeToUserObject(vector<string> attributeHolder)
 {
-    if(attributeHolder.at(0) == "username")
+    if(attributeHolder.at(0) == "name")
     {
-        user->setUsername(attributeHolder.at(1));
+        user->setName(attributeHolder.at(1));
     }else if(attributeHolder.at(0) == "password")
     {
         user->setPassword(attributeHolder.at(1));
     }else if(attributeHolder.at(0) == "level")
     {
         int attribute = atoi(attributeHolder.at(1).c_str());
-        user->getMonster()->setLevel(attribute);
+        user->getMonster()->setLevel(attribute, false);
     }else if(attributeHolder.at(0) == "health")
     {
         int attribute = atoi (attributeHolder.at(1).c_str());
         user->getMonster()->setHealth(attribute);
-        cout << "Successfully set health " << user->getMonster()->getHealth() << endl;
     }else if(attributeHolder.at(0) == "attack")
     {
         int attribute = atoi (attributeHolder.at(1).c_str());
@@ -145,6 +148,13 @@ void UserDA::assignAttributeToUserObject(vector<string> attributeHolder)
     }else if(attributeHolder.at(0) == "experience")
     {
         int attribute = atoi (attributeHolder.at(1).c_str());
-        user->getMonster()->setExperience(attribute);
+        user->getMonster()->setExperience(attribute, false);
+    }else if(attributeHolder.at(0) == "monsterName")
+    {
+        user->getMonster()->setMonsterName(attributeHolder.at(1));
+    }else if(attributeHolder.at(0) == "coins")
+    {
+        int attribute = atoi (attributeHolder.at(1).c_str());
+        user->setCoins(attribute, false);
     }
 }

@@ -53,14 +53,26 @@
 			<Option virtualFolder="View/" />
 		</Unit>
 		<Unit filename="BasicView.h" />
+		<Unit filename="Battle.cpp">
+			<Option virtualFolder="Model/" />
+		</Unit>
+		<Unit filename="Battle.h" />
 		<Unit filename="BattleController.cpp">
 			<Option virtualFolder="Controller/" />
 		</Unit>
 		<Unit filename="BattleController.h" />
+		<Unit filename="BattleMove.cpp">
+			<Option virtualFolder="Model/" />
+		</Unit>
+		<Unit filename="BattleMove.h" />
 		<Unit filename="BattleTemplate.cpp">
 			<Option virtualFolder="View/" />
 		</Unit>
 		<Unit filename="BattleTemplate.h" />
+		<Unit filename="BattleUserVsComp.cpp">
+			<Option virtualFolder="Model/" />
+		</Unit>
+		<Unit filename="BattleUserVsComp.h" />
 		<Unit filename="BattleView.cpp">
 			<Option virtualFolder="View/" />
 		</Unit>
@@ -69,6 +81,8 @@
 			<Option virtualFolder="Controller/" />
 		</Unit>
 		<Unit filename="Controller.h" />
+		<Unit filename="GameController.cpp" />
+		<Unit filename="GameController.h" />
 		<Unit filename="Item.cpp">
 			<Option virtualFolder="Model/" />
 		</Unit>

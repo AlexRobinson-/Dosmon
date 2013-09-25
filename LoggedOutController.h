@@ -5,20 +5,32 @@
 
 #include "Controller.h"
 
+class User;
+class UserMonster;
+class LoggedOutView;
+
 class LoggedOutController: public Controller
 {
     public:
         /* CON/DECON */
-        LoggedOutController(std::string = "Main");
+        LoggedOutController(User*);
         virtual ~LoggedOutController();
 
-        void performAction(std::string = "Main");
-        void mainMenu();
+        std::string performAction(std::string = "Main");
+        std::string mainMenu();
 
-        void createAccount();
-        void loginScreen();
+        std::string createAccount();
+        std::string loginScreen();
+
+        void setUpController();
+        void startController(std::string = "Main");
     protected:
     private:
+        std::string nextScreen = "Main";
+        User* user;
+        UserMonster* userMonster;
+        User tmpUser;
+        LoggedOutView* loggedOutView;
 };
 
 #endif // LOGGEDOUTCONTROLLER_H

@@ -1,7 +1,9 @@
-username:alex
+name:Alex
 password:alex123
-health:10
-level:1
+level:11
+health:101
 attack:1
-statpoints:5
-experience:0
+statpoints:970393894
+experience:68
+monsterName:AwesomeMon
+coins:2686712

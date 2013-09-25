@@ -13,7 +13,7 @@ class Monster
 
         /* SETS */
         void setMonsterName(std::string);
-        void setLevel(int);
+        void setLevel(int, bool = true);
         void setHealth(int);
         void setMaxHealth(int);
         void setAttack(int);
@@ -26,9 +26,11 @@ class Monster
         int getAttack();
 
         /* METHODS */
-        virtual BattleMove* requestBattleMove() = 0;
+        virtual BattleMove requestBattleMove(std::string = "null") = 0;
+        virtual void loadLevelAttributes() = 0;
 
     protected:
+        int calculateAttack();
     private:
         /* ATTRIBUTES */
         std::string monsterName;

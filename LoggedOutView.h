@@ -3,6 +3,8 @@
 
 #include "View.h"
 
+class User;
+
 class LoggedOutView: public View
 {
     public:
@@ -10,6 +12,7 @@ class LoggedOutView: public View
         virtual ~LoggedOutView();
 
         void load();
+        void printWelcomeMessage(User*);
     protected:
     private:
 };

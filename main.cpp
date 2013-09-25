@@ -20,13 +20,18 @@ int main()
         If the user isn't logged in open the logged out controller
 
     */
-        if(false) {
-            User user;
-            user.setUsername("This is the username");
-            MainController main = MainController(&user);
-        }else {
-            LoggedOutController loggedOut;
-    }
+
+
+    User user;
+    UserMonster userMonster;
+    user.setMonster(&userMonster);
+
+    LoggedOutController loggedOutController(&user);
+    loggedOutController.startController();
+
+    MainController mainController;
+    mainController.setUpController(&user);
+    mainController.startController();
 
     return 0;
 }

@@ -19,8 +19,8 @@ class UserMonster: public Monster
         virtual ~UserMonster();
 
         /* SETS */
-        void setStatPoints(int);
-        void setExperience(int);
+        void setStatPoints(int, bool = true);
+        void setExperience(int, bool = true);
         void setMaxExperience(int);
 
         /* GETS */
@@ -29,7 +29,8 @@ class UserMonster: public Monster
         int getMaxExperience();
 
         /* METHODS */
-        BattleMove* requestBattleMove();
+        BattleMove requestBattleMove(std::string = "null");
+        void loadLevelAttributes();
     protected:
     private:
         /* ATTRIBUTES */

@@ -23,7 +23,7 @@ class AIMonsterGenerator
         virtual ~AIMonsterGenerator();
 
         /* METHODS */
-        static AIMonster generateMonster(UserMonster*);
+        static void generateMonster(AIMonster*, UserMonster*);
     protected:
     private:
 };

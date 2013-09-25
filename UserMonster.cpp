@@ -1,8 +1,12 @@
 #include "UserMonster.h"
 
 #include "BattleMove.h"
+#include "UserAttributeHelper.h"
+#include "BasicView.h"
 
 #include <iostream>
+#include <cmath>
+#include <sstream>
 
 using namespace std;
 
@@ -20,14 +24,40 @@ UserMonster::~UserMonster()
 
 /* SETS */
 
-void UserMonster::setStatPoints(int statPoints)
+void UserMonster::setStatPoints(int statPoints, bool increment)
 {
-    this->statPoints = statPoints;
+    if(increment)
+    {
+        this->statPoints += statPoints;
+    }else
+    {
+        this->statPoints = statPoints;
+    }
 }
 
-void UserMonster::setExperience(int experience)
+void UserMonster::setExperience(int experience, bool increment)
 {
-    this->experience = experience;
+    if(increment)
+    {
+        this->experience += experience;
+    }else
+    {
+        this->experience = experience;
+    }
+
+    while(getExperience() >= getMaxExperience())
+    {
+        this->experience = getExperience() - getMaxExperience();
+        setLevel(1);
+        BasicView bv;
+        bv.printLineBreak('*');
+        bv.printMiddleOfBlockNote("Congratulations, you levelled up!");
+        stringstream tmpLevel;
+        tmpLevel << getLevel();
+        bv.printMiddleOfBlockNote("Level " + tmpLevel.str());
+        bv.printLineBreak('*');
+        bv.pressEnterToContinue();
+    }
 }
 
 void UserMonster::setMaxExperience(int maxExperience)
@@ -54,15 +84,29 @@ int UserMonster::getMaxExperience()
 
 /* METHODS */
 
-BattleMove* UserMonster::requestBattleMove()
+BattleMove UserMonster::requestBattleMove(string action)
 {
-    string in;
-    cout << "What would you like to do? ";
-    cin >> in;
     BattleMove battleMove;
     battleMove.setPerformingMonster(0);
-    battleMove.setReceivingMonster(1);
-    battleMove.setHealth(-2);
-    cout << "set battleMove health: " << battleMove.getHealth() << endl;
-    return &battleMove;
+
+    if(action == "Attack")
+    {
+        int rand = /* RANDOM NUMBER */ 2;
+        int calculateAttackHealth = calculateAttack();
+        battleMove.setHealth(calculateAttackHealth);
+        battleMove.setReceivingMonster(1);
+    }else if(action == "Heal")
+    {
+        battleMove.setHealth(2);
+        battleMove.setReceivingMonster(0);
+    }
+
+    return battleMove;
+}
+
+void UserMonster::loadLevelAttributes()
+{
+    setMaxHealth(UserAttributeHelper::calculateMaxHealth(getLevel()));
+    setMaxExperience(UserAttributeHelper::calculateMaxExperience(getLevel()));
+    setStatPoints(UserAttributeHelper::calculateStatPoints(getLevel()));
 }

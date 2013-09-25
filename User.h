@@ -23,14 +23,17 @@ class User
 
         /* SETS */
         void setUsername(std::string);
+        void setName(std::string);
         void setPassword(std::string);
         void setMonster(UserMonster*);
-
+        void setCoins(int, bool=true);
 
         /* GETS */
         std::string getUsername();
+        std::string getName();
         std::string getPassword();
         UserMonster* getMonster();
+        int getCoins();
 
         /* METHODS */
         bool attemptLogin(std::string, std::string, std::string = ".txt");
@@ -40,8 +43,10 @@ class User
 
     protected:
     private:
-        std::string username = "NOT SET";
-        std::string password = "NOT SET";
+        std::string username    = "NOT SET";
+        std::string name        = "NOT SET";
+        std::string password    = "NOT SET";
+        int coins;
 
         UserMonster* monster;
         //todo items

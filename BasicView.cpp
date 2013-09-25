@@ -2,6 +2,10 @@
 #include <iostream>
 #include <iterator>
 
+#include "User.h";
+#include "UserMonster.h";
+#include "AIMonster.h";
+
 using namespace std;
 
 BasicView::BasicView()
@@ -22,12 +26,35 @@ void BasicView::assignRefToUser(User* user)
     this->user = user;
 }
 
-void BasicView::load()
+void BasicView::loadBasic(int columns)
 {
-    printLineBreak('-', 80);
+    printVerticalWhiteSpace();
+    if(noteActive())
+    {
+        cout << getNote() << endl << endl;
+    }
+    printTitle();
+    printLineBreak();
+    printAccountInfoBar(this->user->getName(), this->user->getMonster()->getMonsterName(), this->user->getMonster()->getLevel());
     printAttributeBar(this->user->getMonster()->getHealth(), this->user->getMonster()->getMaxHealth(), "Health");
     printAttributeBar(this->user->getMonster()->getExperience(), this->user->getMonster()->getMaxExperience(), "Exp");
-    printTitle();
-    printActions();
+    printLineBreak(' ');
+    printActions(columns);
+}
 
+void BasicView::loadFancy(int columns)
+{
+    printVerticalWhiteSpace();
+    if(noteActive())
+    {
+        cout << getNote() << endl << endl;
+    }
+    printBlockNote("The Awesome Store", '*', 1, 2, 2);
+    printLineBreak(' ');
+    printLineBreak();
+    printAccountInfoBar(this->user->getName(), this->user->getMonster()->getMonsterName(), this->user->getMonster()->getLevel());
+    printAttributeBar(this->user->getMonster()->getHealth(), this->user->getMonster()->getMaxHealth(), "Health");
+    printAttributeBar(this->user->getMonster()->getExperience(), this->user->getMonster()->getMaxExperience(), "Exp");
+    printLineBreak(' ');
+    printActions(columns);
 }

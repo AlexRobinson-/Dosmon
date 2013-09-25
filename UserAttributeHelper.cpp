@@ -1,5 +1,7 @@
 #include "UserAttributeHelper.h"
 
+#include <cmath>
+
 UserAttributeHelper::UserAttributeHelper()
 {
     //ctor
@@ -22,12 +24,18 @@ Things to consider/do:
 */
 int UserAttributeHelper::calculateMaxHealth(int level)
 {
-    int health = level * 10;
+    int health = 1.3 * (pow(level, 1.3)) * 10;
     return health;
 }
 
 int UserAttributeHelper::calculateMaxExperience(int level)
 {
-    int experience = level * 10;
-    return level;
+    int experience = floor(pow(1.4, level) * 3);
+    return experience;
+}
+
+int UserAttributeHelper::calculateStatPoints(int level)
+{
+    int statPoints = 5;
+    return statPoints;
 }

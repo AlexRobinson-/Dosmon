@@ -23,15 +23,23 @@ class BattleUserVsComp: public Battle
 
         /* METHODS */
         void nextMove();
+        void executeBattleMove(BattleMove*);
+        int calculateExperiencePoints();
 
     protected:
     private:
         /* METHODS */
-        void executeBattleMove(BattleMove);
+
 
         /* ATTRIBUTES */
         UserMonster* userMonster;
         AIMonster* aiMonster;
+
+        const double expLevel = 1.3;
+        const double expDiff = 1.4;
+        const double minDiff = -5;
+        const double levelUpExp = 1.4;
+        const double minExp = 3;
 };
 
 #endif // BATTLEUSERVSCOMP_H

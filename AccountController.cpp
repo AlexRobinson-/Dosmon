@@ -1,5 +1,5 @@
 #include "AccountController.h"
-
+using namespace std;
 #include <iostream>
 
 /* MODELS */
@@ -11,12 +11,11 @@
 /* VIEWS */
 #include "BasicView.h"
 
-using namespace std;
+/* CON/DECON */
 
-AccountController::AccountController(User* userObject, string action)
+AccountController::AccountController()
 {
-    this->user = userObject;
-    performAction(action);
+
 }
 
 AccountController::~AccountController()
@@ -24,38 +23,78 @@ AccountController::~AccountController()
     //dtor
 }
 
-void AccountController::performAction(string action)
+/* METHODS */
+void AccountController::setUpController(User* userObject)
 {
-    if(action == "Main")
-    {
-        mainMenu();
-    }else if(action == "Account")
-    {
+    this->user = userObject;
+}
 
-    }else if(action == "Logout")
+void AccountController::startController(string nextScreen)
+{
+    bool onScreen = true;
+    while(onScreen == true)
     {
-        cout << "Logged out" << endl;
-    }else if(action == "Back")
-    {
-        MainController mainController(this->user);
+        nextScreen = performAction(nextScreen);
+        if(nextScreen == "Back")
+        {
+            onScreen = false;
+        }
     }
 }
 
-void AccountController::mainMenu()
+string AccountController::performAction(string action, string nextScreen)
+{
+    if(action == "Main")
+    {
+        nextScreen = mainMenu();
+    }else if(action == "Change name")
+    {
+        changeUsername();
+    }else if(action == "Change password")
+    {
+        changePassword();
+    }else if(action == "Change monster name")
+    {
+        changeMonsterName();
+    }
+    user->save();
+    return nextScreen;
+}
+
+string AccountController::mainMenu()
 {
     BasicView basicView;
     basicView.assignRefToUser(this->user);
     basicView.setTitle("Account");
 
-    vector<string> actions(3);
-    actions.at(0) = "Change username";
+    vector<string> actions(4);
+    actions.at(0) = "Change name";
     actions.at(1) = "Change password";
-    actions.at(2) = "Back";
+    actions.at(2) = "Change monster name";
+    actions.at(3) = "Back";
     basicView.setActions(actions);
 
-    basicView.load();
+    basicView.loadBasic();
 
     int userinput;
     userinput = requestInput("Please enter in some stuff: ");
-    performAction(basicView.getActions().at(userinput));
+    return basicView.getActions().at(userinput);
+}
+
+void AccountController::changeUsername()
+{
+    string username = requestStringInput("Please enter your new name: ");
+    user->setName(username);
+}
+
+void AccountController::changePassword()
+{
+    string password = requestStringInput("Please enter your new password: ");
+    user->setPassword(password);
+}
+
+void AccountController::changeMonsterName()
+{
+    string monsterName = requestStringInput("Please enter a new name for your monster: ");
+    user->getMonster()->setMonsterName(monsterName);
 }

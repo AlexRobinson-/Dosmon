@@ -1,7 +1,8 @@
-username:alex2
+name:Alex
 password:alex123
+level:2
 health:10
-level:1
 attack:1
-statpoints:5
+statpoints:1965029843
 experience:0
+monsterName:TheMonster

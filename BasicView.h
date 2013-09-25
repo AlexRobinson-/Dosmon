@@ -1,10 +1,9 @@
 #ifndef BASICVIEW_H
 #define BASICVIEW_H
-#include <string>
-#include <map>
 
 #include "View.h"
-#include "User.h"
+
+class User;
 
 class BasicView: public View
 {
@@ -14,8 +13,9 @@ class BasicView: public View
         virtual ~BasicView();
 
         void assignRefToUser(User*);
-        void load();
 
+        void loadBasic(int columns = 2);
+        void loadFancy(int columns = 2);
     protected:
     private:
         User* user;

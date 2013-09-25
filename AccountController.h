@@ -10,10 +10,17 @@ class AccountController: public Controller
 {
     public:
         /* CON/DECON */
-        AccountController(User*, std::string = "Main");
+        AccountController();
         virtual ~AccountController();
-        void performAction(std::string = "Main");
-        void mainMenu();
+
+        /* METHODS */
+        void setUpController(User*);
+        void startController(std::string = "Main");
+        std::string performAction(std::string = "Main", std::string = "Main");
+        std::string mainMenu();
+        void changeUsername();
+        void changePassword();
+        void changeMonsterName();
     protected:
     private:
 };

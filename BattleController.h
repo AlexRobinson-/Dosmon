@@ -1,9 +1,16 @@
 #ifndef BATTLECONTROLLER_H
 #define BATTLECONTROLLER_H
 
-#include "UserMonster.h"
-#include "AIMonster.h"
-#include "BattleUserVsComp.h"
+#include "Controller.h"
+
+#include <vector>
+#include <string>
+
+class UserMonster;
+class AIMonster;
+class BattleUserVsComp;
+class BattleView;
+class BattleMove;
 
 /**
 BattleHandler
@@ -13,19 +20,29 @@ BattleHandler
 
 */
 
-class BattleController
+class BattleController: public Controller
 {
     public:
         /* CON/DECON */
-        BattleController(UserMonster*, AIMonster*);
+        BattleController(User*, AIMonster*);
         virtual ~BattleController();
 
         /* METHODS */
         void decideBattleOrder();
-        bool battle();
+        void performAction(std::string);
+        int battle();
+        BattleMove decideUserMove(BattleView*);
+
+        /* ATTRIBUTES */
+
     protected:
     private:
+        std::vector<std::string> chooseBattleMoveMenu;
+        std::vector<std::string> moveOnFromCurrent;
+
         BattleUserVsComp* battleObject;
+        AIMonster* tmpAIMonster;
+        BattleView* battleView;
 };
 
 #endif // BATTLECONTROLLER_H
