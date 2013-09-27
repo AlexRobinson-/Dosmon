@@ -7,16 +7,33 @@ using namespace std;
 #include "User.h"
 #include "Monster.h"
 
+/**
+ * LoggedOutView constructor
+ *
+ * @author Alex Robinson
+ */
 LoggedOutView::LoggedOutView()
 {
     //ctor
 }
 
+/**
+ * LoggedOutView destructor
+ *
+ * @author Alex Robinson
+ */
 LoggedOutView::~LoggedOutView()
 {
     //dtor
 }
 
+/**
+ * Prints the basic (most used) view for the LoggedOutView
+ *
+ * @return void
+ *
+ * @author Alex Robinson
+ */
 void LoggedOutView::load()
 {
     printLineBreak();
@@ -24,6 +41,17 @@ void LoggedOutView::load()
     printActions();
 }
 
+/**
+ * Prints the welcome message for when the User first signs up
+ *
+ * This method could definitely be prettied up
+ *
+ * @param User* user
+ *
+ * @return void
+ *
+ * @author Alex Robinson
+ */
 void LoggedOutView::printWelcomeMessage(User* user)
 {
     printBlockNote("WELCOME TO DOSMON");

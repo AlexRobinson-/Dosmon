@@ -23,6 +23,18 @@ using namespace std;
 
 
 /* CON/DECON */
+/**
+ * BattleController constructor
+ *
+ * Sets up the Battle System, accepts a pointer to the User and the AIMonster the user will be battling.
+ * Creates the BattleObject, sets initial values and calls the battle() method which contains the main battle loop.
+ *
+ * @param User* user
+ * @param AIMonster* aiMonster
+ *
+ * @author Alex Robinson
+ */
+
 BattleController::BattleController(User* user, AIMonster* aiMonster)
 {
     BattleUserVsComp tempBattleObject;
@@ -46,6 +58,12 @@ BattleController::BattleController(User* user, AIMonster* aiMonster)
     }
 }
 
+/**
+ * BattleController destructor
+
+ *
+ * @author Alex Robinson
+ */
 BattleController::~BattleController()
 {
     //dtor
@@ -53,11 +71,25 @@ BattleController::~BattleController()
 
 /* METHODS */
 
+/**
+ *
+ */
 void BattleController::performAction(string action)
 {
 
 }
 
+/**
+ * Requests the user for their next move/action
+ *
+ * Accepts the current BattleView as a pointer as a dirty work around for keeping the GUI object.
+ *
+ * @param BattleView* battleView
+ *
+ * @return BattleMove Contains the move/action information for the user's move.
+ *
+ * @author Alex Robinson
+ */
 BattleMove BattleController::decideUserMove(BattleView* battleView)
 {
     /* MENU */
@@ -86,13 +118,21 @@ BattleMove BattleController::decideUserMove(BattleView* battleView)
     }
     return battleMove;
 }
-/*
-void BattleController::acceptAndContinueBattle(BattleView* battleView)
-{
-    cout << "Press enter to continue..." << endl;
-    cin.get();
-}
-*/
+
+/**
+ * The main battle loop
+ *
+ * While both monster's health is more than 0, continue requesting a battle moves from the User and the AIMonster in
+ * an alternating manner. The results are returned in an int.
+ * 0 = User has lost
+ * 1 = AIMonster has lost
+ * 2 = Error has occured
+ * 3 = Draw
+ *
+ * @return int The loser of the battle
+ *
+ * @author Alex Robinson
+ */
 int BattleController::battle()
 {
     battleView->assignRefToUser(this->user);

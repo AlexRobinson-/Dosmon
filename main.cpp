@@ -10,8 +10,12 @@
 
 using namespace std;
 
+/**
+ *
+ */
 int main()
 {
+
     /**
     TODO
 
@@ -26,7 +30,8 @@ int main()
     UserMonster userMonster;
     user.setMonster(&userMonster);
 
-    LoggedOutController loggedOutController(&user);
+    LoggedOutController loggedOutController;
+    loggedOutController.setUpController(&user);
     loggedOutController.startController();
 
     MainController mainController;

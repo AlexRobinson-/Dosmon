@@ -16,9 +16,9 @@ class AccountController: public Controller
         /* METHODS */
         void setUpController(User*);
         void startController(std::string = "Main");
-        std::string performAction(std::string = "Main", std::string = "Main");
+        std::string performAction(std::string = "Main", std::string = "null");
         std::string mainMenu();
-        void changeUsername();
+        void changeName();
         void changePassword();
         void changeMonsterName();
     protected:

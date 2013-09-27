@@ -8,24 +8,51 @@
 
 using namespace std;
 
+/* CON/DECON */
+
+/**
+ * BasicView constructor
+ *
+ * @author Alex Robinson
+ */
 BasicView::BasicView()
 {
     //ctor
 }
 
+/**
+ * BasicView destructor
+ *
+ * @author Alex Robinson
+ */
 BasicView::~BasicView()
 {
     //dtor
 }
 
 /**
-Passes through the reference to the User object so we can deal with the user object directly.
-*/
+ * Assigns a local pointer to the original User object for easy access
+ *
+ * @param User* user
+ *
+ * @return void
+ *
+ * @author Alex Robinson
+ */
 void BasicView::assignRefToUser(User* user)
 {
     this->user = user;
 }
 
+/**
+ * Loads the basic/most used (at the moment) view
+ *
+ * @param int columns Default = 2, how many columns to print the actions/menu items in
+ *
+ * @return void
+ *
+ * @author Alex Robinson
+ */
 void BasicView::loadBasic(int columns)
 {
     printVerticalWhiteSpace();
@@ -42,6 +69,17 @@ void BasicView::loadBasic(int columns)
     printActions(columns);
 }
 
+/**
+ * Loads a 'fancy' view, which really just means a pretty title.
+ *
+ * Customisation for the title will be implemented soon
+ *
+ * @param int columns Default = 2, how many columns to print the actions/menu items in
+ *
+ * @return void
+ *
+ * @author Alex Robinson
+ */
 void BasicView::loadFancy(int columns)
 {
     printVerticalWhiteSpace();

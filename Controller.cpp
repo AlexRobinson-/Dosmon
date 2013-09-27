@@ -7,16 +7,21 @@
 
 using namespace std;
 
+/**
+ * Controller constructor
+ *
+ * @author Alex Robinson
+ */
 Controller::Controller()
 {
 
 }
 
-void Controller::performAction(string action)
-{
-
-}
-
+/**
+ * Controller destructor
+ *
+ * @author Alex Robinson
+ */
 Controller::~Controller()
 {
     //dtor
@@ -28,6 +33,21 @@ Asks the user for input
 string question     default = *replace*
 bool breakAfter     default = false
 */
+
+/**
+ * Asks the user for input
+ *
+ * Requests the user for input, if the input is more than the max input or less than 0, or if it isn't a valid int, the method will
+ * continue asking the user to enter a valid input.
+ *
+ * @param string question
+ * @param int maxInput
+ * @param bool breakAfter
+ *
+ * @return int User's input
+ *
+ * @author Alex Robinson
+ */
 int Controller::requestInput(string question, int maxInput, bool breakAfter)
 {
     //Enter text if you would like to ask a question
@@ -54,6 +74,10 @@ int Controller::requestInput(string question, int maxInput, bool breakAfter)
         {
            validInput = false;
         }
+        if(getInput < 0)
+        {
+            validInput = false;
+        }
         if(validInput)
         {
             keepRunning = false;
@@ -72,6 +96,18 @@ Asks the user for input
 string question     default = *replace*
 bool breakAfter     default = false
 */
+/**
+ * Requests the user to enter in a string
+ *
+ * Will continue asking the user for a valid input until one is provided
+ *
+ * @param string question
+ * @param bool breakAfter
+ *
+ * @return string User's input
+ *
+ * @author Alex Robinson
+ */
 string Controller::requestStringInput(string question, bool breakAfter)
 {
     //Enter text if you would like to ask a question

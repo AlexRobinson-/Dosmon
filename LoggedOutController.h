@@ -13,16 +13,16 @@ class LoggedOutController: public Controller
 {
     public:
         /* CON/DECON */
-        LoggedOutController(User*);
+        LoggedOutController();
         virtual ~LoggedOutController();
 
-        std::string performAction(std::string = "Main");
+        std::string performAction(std::string = "Main", std::string = "null");
         std::string mainMenu();
 
         std::string createAccount();
         std::string loginScreen();
 
-        void setUpController();
+        void setUpController(User*);
         void startController(std::string = "Main");
     protected:
     private:

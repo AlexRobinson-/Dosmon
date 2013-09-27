@@ -11,11 +11,21 @@ using namespace std;
 
 /* CON/DECON */
 
+/**
+ * BattleView constructor
+ *
+ * @author Alex Robinson
+ */
 BattleView::BattleView()
 {
     //ctor
 }
 
+/**
+ * BattleView destructor
+ *
+ * @author Alex Robinson
+ */
 BattleView::~BattleView()
 {
     //dtor
@@ -23,30 +33,74 @@ BattleView::~BattleView()
 
 /* SETS */
 
+/**
+ * Assigns a local pointer to the original User object for easy access
+ *
+ * @param User* user
+ *
+ * @return void
+ *
+ * @author Alex Robinson
+ */
 void BattleView::assignRefToUser(User* user)
 {
     this->user = user;
 }
 
+/**
+ * Assigns a local pointer to the original AIMonster object for easy access
+ *
+ * @param AIMonster* aiMonster
+ *
+ * @return void
+ *
+ * @author Alex Robinson
+ */
 void BattleView::assignRefToAIMonster(AIMonster* aiMonster)
 {
     this->aiMonster = aiMonster;
 }
 
-void BattleView::attachBattleMove(BattleMove* battleMoved)
+/**
+ * Assigns a local pointer to the original BattleMove object for easy access
+ *
+ * Also sets the battleMoveAttached to true, to alert the printing methods that a BattleMove has been executed and needs to be
+ * shown
+ *
+ * @param BattleMove* battleMove
+ *
+ * @return void
+ *
+ * @author Alex Robinson
+ */
+void BattleView::attachBattleMove(BattleMove* battleMove)
 {
-    battleMove = battleMoved;
+    battleMove = battleMove;
     this->battleMoveAttached = true;
 }
 
 /* METHODS */
 
+/**
+ * Prints the menu view, which will print out what actions the User can choose
+ *
+ * @return void
+ *
+ * @author Alex Robinson
+ */
 void BattleView::displayMenuView()
 {
     displayBattleViewHeader();
     printActions();
 }
 
+/**
+ * Prints the BattleMove view, which shows details on what the most recent BattleMove has done
+ *
+ * @return void
+ *
+ * @author Alex Robinson
+ */
 void BattleView::displayMoveResultView()
 {
     displayBattleViewHeader();
@@ -55,6 +109,15 @@ void BattleView::displayMoveResultView()
 
 /* PRIVATE METHODS */
 
+/**
+ * The actual process and method for printing out the BattleMove
+ *
+ * This method will only print out the past BattleMethod if a BattleMove has been attached.
+ *
+ * @return void
+ *
+ * @author Alex Robinson
+ */
 void BattleView::displayBattleMove()
 {
     if(this->battleMove == 0)
@@ -104,6 +167,15 @@ void BattleView::displayBattleMove()
     battleMoveAttached = false;
 }
 
+/**
+ * Prints out the header for the Battle View
+ *
+ * This includes the attribute bars for the AIMonster and the UserMonster plus all of the usual stuff
+ *
+ * @return void
+ *
+ * @author Alex Robinson
+ */
 void BattleView::displayBattleViewHeader()
 {
     printVerticalWhiteSpace();
@@ -122,6 +194,19 @@ void BattleView::displayBattleViewHeader()
     printLineBreak(' ');
 }
 
+/**
+ * Prints out the battle results
+ *
+ * If the User wins, the experience points gained will need be passed in through the second parameter. Currently there is
+ * no other use for the second parameter
+ *
+ * @param int loser 0 = you lost, 1 = AIMonster lost, 2 = error, 3 = draw
+ * @param int extra
+ *
+ * @return void
+ *
+ * @author Alex Robinson
+ */
 void BattleView::displayBattleResults(int loser, int extra)
 {
     printVerticalWhiteSpace();
@@ -136,7 +221,7 @@ void BattleView::displayBattleResults(int loser, int extra)
     }else if(loser == 3)
     {
         cout << "Draw" << endl;
-    }else if(loser == 4)
+    }else if(loser == 2)
     {
         cout << "Error: Something went wrong, check out the battle() method" << endl;
     }

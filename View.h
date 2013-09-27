@@ -25,7 +25,7 @@ class View
         void printVerticalWhiteSpace(int = 20);
         void printTitle(bool = true);
         void printActions(int = 2);
-        void printLineBreak(char = '-', int = 80, bool = false);
+        void printLineBreak(char = '-', int = View::screenWidth, bool = false, bool = false);
         void printAttributeBar(int, int, std::string, int = 15, char = '=', bool = true);
         void printAccountInfoBar(std::string, std::string, int, bool = true);
         void printBlockNote(std::string, char='*', int=0, int=1, int=1);
@@ -34,7 +34,8 @@ class View
         /* METHODS */
         void pressEnterToContinue();
 
-
+        /* ATTRIBUTES */
+        static int screenWidth;
 
     protected:
     private:
@@ -44,10 +45,7 @@ class View
         bool showNote = false;
         void printEmpty(int);
 
-        const int linesAccross = 80;
         const int linesDown = 20;
 };
-
-
 
 #endif // VIEW_H

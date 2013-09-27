@@ -13,11 +13,21 @@ using namespace std;
 
 /* CON/DECON */
 
+/**
+ * Monster constructor
+ *
+ * @author Alex Robinson
+ */
 Monster::Monster()
 {
     //ctor
 }
 
+/**
+ * Monster destructor
+ *
+ * @author Alex Robinson
+ */
 Monster::~Monster()
 {
     //dtor
@@ -25,11 +35,32 @@ Monster::~Monster()
 
 /* SETS */
 
+/**
+ * Sets the Monster's name
+ *
+ * @param string monsterName
+ *
+ * @return void
+ *
+ * @author Alex Robinson
+ */
 void Monster::setMonsterName(string monsterName)
 {
     this->monsterName = monsterName;
 }
 
+/**
+ * Sets the level of the Monster
+ *
+ * Pass in false as the second parameter to set the level, default value is true which simulates levelling up
+ *
+ * @param int level
+ * @param bool increment Default = true
+ *
+ * @return void
+ *
+ * @author Alex Robinson
+ */
 void Monster::setLevel(int level, bool increment)
 {
     if(increment)
@@ -42,6 +73,15 @@ void Monster::setLevel(int level, bool increment)
     loadLevelAttributes();
 }
 
+/**
+ * Sets the health of the Monster
+ *
+ * @param int tmpHealth
+ *
+ * @return void
+ *
+ * @author Alex Robinson
+ */
 void Monster::setHealth(int tmpHealth)
 {
 
@@ -54,11 +94,33 @@ void Monster::setHealth(int tmpHealth)
     this->health = tmpHealth;
 }
 
+/**
+ * Sets the maximum health of the Monster
+ *
+ * Possibly useless (due to this being a calculated value), needs evaluation
+ *
+ * @param int maxHealth
+ *
+ * @return void
+ *
+ * @author Alex Robinson
+ */
 void Monster::setMaxHealth(int maxHealth)
 {
     this->maxHealth = maxHealth;
 }
 
+/**
+ * Sets the attack for the Monster
+ *
+ * Attack points increase how much the Monster deals damage while in Battle
+ *
+ * @param int attack
+ *
+ * @return void
+ *
+ * @author Alex Robinson
+ */
 void Monster::setAttack(int attack)
 {
     this->attack = attack;
@@ -66,26 +128,61 @@ void Monster::setAttack(int attack)
 
 /* GETS */
 
+/**
+ * Returns the Monster's name
+ *
+ * @return string
+ *
+ * @author Alex Robinson
+ */
 string Monster::getMonsterName()
 {
     return monsterName;
 }
 
+/**
+ * Returns the Monster's level
+ *
+ * @return int
+ *
+ * @author Alex Robinson
+ */
 int Monster::getLevel()
 {
     return level;
 }
 
+/**
+ * Returns the Monster's health
+ *
+ * @return int
+ *
+ * @author Alex Robinson
+ */
 int Monster::getHealth()
 {
     return health;
 }
 
+/**
+ * Returns the Monster's maximum possible health
+ *
+ * @return int
+ *
+ * @author Alex Robinson
+ */
 int Monster::getMaxHealth()
 {
     return maxHealth;
 }
 
+/**
+ * Returns how many attack points the Monster has
+ *
+ * @return int
+ *
+ * @author Alex Robinson
+ */
 int Monster::getAttack()
 {
     return attack;
@@ -94,6 +191,16 @@ int Monster::getAttack()
 /* METHODS */
 
 /* PROTECTED METHODS */
+
+/**
+ * Calculates and returns how much damage the Monster deals while in battle
+ *
+ * Needs to be reviewed, I'm sure we could come up with a much better way of doing this.
+ *
+ * @return int
+ *
+ * @author Alex Robinson
+ */
 int Monster::calculateAttack()
 {
     srand(time(0));
