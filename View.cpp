@@ -319,8 +319,10 @@ void View::printAttributeBar(int currentAmount, int maxAmount, string title, int
 void View::printAccountInfoBar(string masterName, string monsterName, int level, bool newLine)
 {
     cout << "\t\t" << masterName << endl << monsterName << "\t\tlvl " << level;
-    if(newLine)
-        endl;
+    if(newLine){
+        cout << endl;
+    }
+
 }
 
 /**

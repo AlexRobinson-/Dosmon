@@ -75,7 +75,7 @@ void BattleView::assignRefToAIMonster(AIMonster* aiMonster)
  */
 void BattleView::attachBattleMove(BattleMove* battleMove)
 {
-    battleMove = battleMove;
+    this->battleMove = battleMove;
     this->battleMoveAttached = true;
 }
 

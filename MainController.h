@@ -14,7 +14,7 @@ class MainController: public Controller
         MainController();
         ~MainController();
 
-        std::string performAction(std::string = "Main", std::string = "Main");
+        std::string performAction(std::string = "Main", std::string = "null");
         std::string mainMenu();
 
         void setUpController(User*);

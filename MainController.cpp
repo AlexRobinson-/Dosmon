@@ -152,6 +152,8 @@ string MainController::performAction(string action, string nextScreen)
         nextScreen = localNextScreen;
     }
 
+    cout << nextScreen << " " << localNextScreen << endl;
+
     user->save();
     return nextScreen;
 }

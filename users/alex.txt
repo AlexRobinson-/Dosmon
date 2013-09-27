@@ -3,7 +3,7 @@ password:alex123
 level:12
 health:328
 attack:1
-statpoints:-541058029
-experience:38
+statpoints:859285206
+experience:107
 monsterName:AwesomeMon
 coins:2686712

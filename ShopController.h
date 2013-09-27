@@ -18,7 +18,7 @@ class ShopController: public Controller
         void setUpController(User*);
         void startController(std::string = "Main");
 
-        std::string performAction(std::string = "Main", std::string = "Main");
+        std::string performAction(std::string = "Main", std::string = "null");
         std::string mainMenu();
     protected:
     private:
