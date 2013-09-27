@@ -2,6 +2,7 @@
 #define MAINCONTROLLER_H
 
 #include <string>
+#include <vector>
 
 /*  */
 #include "User.h"
@@ -21,6 +22,8 @@ class MainController: public Controller
         void startController(std::string = "Main");
     protected:
     private:
+        void loadMenus();
+        std::vector<std::string> mainMenuActions;
 };
 
 #endif // MAINCONTROLLER_H

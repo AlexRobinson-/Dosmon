@@ -62,6 +62,7 @@ MainController::~MainController()
 void MainController::setUpController(User* userObject)
 {
     this->user = userObject;
+    loadMenus();
 }
 
 /**
@@ -171,7 +172,25 @@ string MainController::mainMenu()
     basicView.assignRefToUser(this->user); // Give BasicView access to the user object
     basicView.setTitle("Main Menu"); // Set the title of the screen
 
-    /* MENU */
+    basicView.setActions(mainMenuActions); // Set the actions of the screen
+
+    basicView.loadBasic(); // Display the screen to the page
+
+    int userinput;
+    userinput = requestInput("Please enter in some stuff: ", 7); // Get input (menu option) from the user
+
+    return basicView.getActions().at(userinput); // Return the menu that the user requested
+}
+
+/**
+ * Loads all of the relevant menus for the controller
+ *
+ * @return void
+ *
+ * @author Alex Robinson
+ */
+void MainController::loadMenus()
+{
     vector<string> actions(7);
     actions.at(0) = "Battle";
     actions.at(1) = "Items";
@@ -180,12 +199,5 @@ string MainController::mainMenu()
     actions.at(4) = "Revive";
     actions.at(5) = "Shop";
     actions.at(6) = "Logout";
-    basicView.setActions(actions); // Set the actions of the screen
-
-    basicView.loadBasic(); // Display the screen to the page
-
-    int userinput;
-    userinput = requestInput("Please enter in some stuff: ", 7); // Get input (menu option) from the user
-
-    return basicView.getActions().at(userinput); // Return the menu that the user requested
+    this->mainMenuActions = actions;
 }

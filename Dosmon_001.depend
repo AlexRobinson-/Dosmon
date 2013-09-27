@@ -82,8 +82,9 @@
 	"UserMonster.h"
 	"User.h"
 
-1380165090 d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\loggedoutcontroller.h
+1380289249 d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\loggedoutcontroller.h
 	<string>
+	<vector>
 	"Controller.h"
 
 1377569480 source:d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\loggedouttemplate.cpp
@@ -112,8 +113,9 @@
 	<string>
 	"UserMonster.h"
 
-1380288206 d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\maincontroller.h
+1380288854 d:\swinburne\swinburne 2013 s2\c++ learning\in class projects\dosmon_001\maincontroller.h
 	<string>
+	<vector>
 	"User.h"
 	"Controller.h"
 

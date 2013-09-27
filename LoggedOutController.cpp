@@ -53,6 +53,7 @@ LoggedOutController::~LoggedOutController()
 void LoggedOutController::setUpController(User* user)
 {
     this->user = user;
+    loadMenus();
 }
 
 /**
@@ -139,18 +140,12 @@ string LoggedOutController::mainMenu()
 {
     loggedOutView->setTitle("Dosmon V1.0 BETA"); // Set the title of the screen
 
-    /* MENU */
-    vector<string> actions(4);
-    actions.at(0) = "Login";
-    actions.at(1) = "Create account";
-    actions.at(2) = "Forgot password";
-    actions.at(3) = "Close";
-    loggedOutView->setActions(actions); // Set the actions of the screen
+    loggedOutView->setActions(mainMenuActions); // Set the actions of the screen
 
     loggedOutView->load(); // Display the screen to the page
 
     int userinput;
-    userinput = requestInput("Please enter in some stuff: ", actions.size()); // Get input (menu option) from the user
+    userinput = requestInput("Please enter in some stuff: ", mainMenuActions.size()); // Get input (menu option) from the user
     return loggedOutView->getActions().at(userinput);
 }
 
@@ -214,4 +209,21 @@ string LoggedOutController::loginScreen()
         return "Main";
     }
 
+}
+
+/**
+ * Loads all of the relevant menus for the controller
+ *
+ * @return void
+ *
+ * @author Alex Robinson
+ */
+void LoggedOutController::loadMenus()
+{
+    vector<string> actions(4);
+    actions.at(0) = "Login";
+    actions.at(1) = "Create account";
+    actions.at(2) = "Forgot password";
+    actions.at(3) = "Close";
+    this->mainMenuActions = actions;
 }
